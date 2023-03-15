@@ -6,7 +6,7 @@
 * 각각 1시간(혹은 40분) 시간 재서 풀기
 * 시간이 되면(못 풀어도 중지) 각자 풀이방법 설명
 
-* 공유하고 싶은 문제나 내용은 여기
+* 공유하고 싶은 문제나 내용은 [여기](https://github.com/algoStudyforCodingTest/ALGORITHM/discussions)
 
 ## 문제
 
