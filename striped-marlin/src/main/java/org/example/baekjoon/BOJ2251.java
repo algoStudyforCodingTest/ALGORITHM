@@ -19,91 +19,129 @@ public class BOJ2251 {
         Arrays.fill(water, 0);
         water[2] = C;
 
-        int[] bucket = new int[3];
-        bucket[0] = A;
-        bucket[1] = B;
-        bucket[2] = C;
+        Boolean[][][] visited = new Boolean[A+1][B+1][C+1];
+        for(int i = 0; i<=A; i++) {
+            for(int j = 0; j<=B; j++) {
+                Arrays.fill(visited[i][j], false);
+            }
+        }
+        visited[0][0][C-1] = true;
 
-        Boolean[] visited = new Boolean[3];
-        Arrays.fill(visited, false);
 
-        Map<Integer[], Boolean[]> map = new HashMap<>();
-        map.put(water, visited);
-
-        Queue<Map<Integer[], Boolean[]>> queue = new LinkedList<>();
-        queue.add(map);
+        Queue<Integer[]> queue = new LinkedList<>();
+        queue.add(water);
 
         List<Integer> list = new ArrayList<>();
         while (!queue.isEmpty()) {
 
 
-            Map<Integer[], Boolean[]> map1 = queue.poll();
-            List<Integer[]> list1 = new ArrayList<>(map1.keySet());
-            Integer[] w = list1.get(0);
-            Boolean[] visit1 = map1.get(w);
+            Integer[] w = queue.poll();
 
             int a = w[0];
             int b = w[1];
             int c = w[2];
 
-            if(b + a <= B) {
+            if(a == 0) {
                 if(!list.contains(c)) {
                     list.add(c);
                 }
             }
 
-            if(a == 0 && w[4] > 0) {
-                if(!list.contains(c)) {
-                    list.add(c);
+            int ta; int tb; int tc;
+            // a -> b
+            if(a != 0) {
+                ta =a; tb = b; tc = c;
+                tb = a + b;
+                if(tb > B) {
+                    ta = a + b - B;
+                    tb = B;
+                } else {
+                    ta = 0;
+                }
+                if(!visited[ta][tb][tc]) {
+                    visited[ta][tb][tc] = true;
+                    queue.add(new Integer[]{ta, tb, tc});
                 }
             }
-            Integer[] copy = new Integer[5];
-            for(int i = 0; i<5; i++) {
-                copy[i] = w[i];
+            // a -> c
+            if(a != 0) {
+                ta =a; tb = b; tc = c;
+                tc = a + c;
+                if(tc > C) {
+                    ta = a + c - C;
+                    tc = C;
+                } else {
+                    ta = 0;
+                }
+                if(!visited[ta][tb][tc]) {
+                    visited[ta][tb][tc] = true;
+                    queue.add(new Integer[]{ta, tb, tc});
+                }
             }
-
-            Boolean[] copyVisit = new Boolean[3];
-            for(int i = 0; i<3; i++) {
-                copyVisit[i] = visit1[i];
+            //b->a
+            if(b != 0) {
+                ta =a; tb = b; tc = c;
+                ta = b + a;
+                if(ta > A) {
+                    tb = a + b - A;
+                    ta = A;
+                } else {
+                    tb = 0;
+                }
+                if(!visited[ta][tb][tc]) {
+                    visited[ta][tb][tc] = true;
+                    queue.add(new Integer[]{ta, tb, tc});
+                }
             }
-
-            for(int i = 0; i<3; i++) {
-                for(int j = 0; j<3; j++) {
-                    if(i == j) continue;
-                    if(w[i] > 0 &&  !visit1[j]) {
-                        w[j] += w[i];
-                        if(w[j] > bucket[j]) {
-                            w[i] = w[j] - bucket[j];
-                            w[j] = bucket[j];
-                        } else {
-                            w[i] = 0;
-                        }
-                        visit1[j] = true;
-                        w[4] += 1;
-                        Integer[] tmp = new Integer[5];
-                        for(int k = 0; k<5; k++) {
-                            tmp[k] = w[k];
-                        }
-                        Boolean[] visitTmp = new Boolean[3];
-                        for(int k = 0; k<3; k++) {
-                            visitTmp[k] = visit1[k];
-                        }
-                        Map<Integer[], Boolean[]> map2 = new HashMap<>();
-                        map2.put(tmp, visitTmp);
-                        queue.add(map2);
-                        for(int k = 0; k<5; k++) {
-                            w[k] = copy[k];
-                        }
-                        for(int k = 0; k<3; k++) {
-                            visit1[k] = copyVisit[k];
-                        }
-                    }
+            //b->c
+            if(b != 0) {
+                ta =a; tb = b; tc = c;
+                tc = b + c;
+                if(tc > C) {
+                    tb = c + b - C;
+                    tc = C;
+                } else {
+                    tb = 0;
+                }
+                if(!visited[ta][tb][tc]) {
+                    visited[ta][tb][tc] = true;
+                    queue.add(new Integer[]{ta, tb, tc});
+                }
+            }
+            //c->a
+            if(c != 0) {
+                ta =a; tb = b; tc = c;
+                ta = a + c;
+                if(ta > A) {
+                    tc = c + a - A;
+                    ta = A;
+                } else {
+                    tc = 0;
+                }
+                if(!visited[ta][tb][tc]) {
+                    visited[ta][tb][tc] = true;
+                    queue.add(new Integer[]{ta, tb, tc});
+                }
+            }
+            //c->b
+            if(c != 0) {
+                ta =a; tb = b; tc = c;
+                tb = b + c;
+                if(tb > B) {
+                    tc = c + b - B;
+                    tb = B;
+                } else {
+                    tc = 0;
+                }
+                if(!visited[ta][tb][tc]) {
+                    visited[ta][tb][tc] = true;
+                    queue.add(new Integer[]{ta, tb, tc});
                 }
             }
         }
         list.sort(Comparator.naturalOrder());
-        for(int i = 0; i<list.size(); i++) {
-            System.out.print(list.get(i) + " ");
+        for (Integer integer : list) {
+            System.out.print(integer + " ");
         }
 
     }
