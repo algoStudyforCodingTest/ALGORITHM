@@ -305,7 +305,7 @@
 <td rowspan="100">23.03.17</td>
 <td rowspan="100">박정수, 홍성주</td>
 
-<td>출제자이름을여기적으세요</td>
+<td>박정수</td>
 <td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/17687">카카오 3차 - N진수 게임</a></td>
 </tr>
 
