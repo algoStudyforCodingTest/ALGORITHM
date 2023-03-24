@@ -318,6 +318,37 @@
 </table>
 
 
+<table>
+<thead>
+<th>일자</th>
+<th>참여자</th>
+<th>문제 제출자</th>
+<th>문제</th>
+</thead>
+<tbody>
+
+<tr>
+<td rowspan="100">23.03.24</td>
+<td rowspan="100">홍성주, 박정수</td>
+
+<td>홍성주</td>
+<td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/77485">행렬 테두리 회전하기</a></td>
+</tr>
+
+<tr>
+<td>박정수</td>
+<td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12980">점프와 순간이동</a></td>
+</tr>
+
+<tr>
+<td>박정수</td>
+<td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/131124">그룹별 조건에 맞는 식당 목록 출력하기(MySQL)</a></td>
+</tr>
+
+</tbody>
+</table>
+
+
 
   
 <!-- 이 아래의 테이블 템플릿을 복사해서 사용하세요 -->
