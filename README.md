@@ -354,7 +354,6 @@
 <th>참여자</th>
 <th>문제 제출자</th>
 <th>문제</th>
-<th>풀이</th>
 </thead>
 <tbody>
 
