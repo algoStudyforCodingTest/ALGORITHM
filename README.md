@@ -367,7 +367,32 @@
 
 <tr>
 <td>홍성주</td>
-<td><a href="https://www.acmicpc.net/problem/17471">게리멘더링
+<td><a href="https://www.acmicpc.net/problem/17471">게리멘더링</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<table>
+<thead>
+<th>일자</th>
+<th>참여자</th>
+<th>문제 제출자</th>
+<th>문제</th>
+</thead>
+<tbody>
+<tr>
+<td rowspan="100">23.04.07</td>
+<td rowspan="100">박정수, 홍성주</td>
+
+<td>박정수</td>
+<td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/62048">멀쩡한 사각형</a></td>
+</tr>
+
+<tr>
+<td>홍성주</td>
+<td><a href="https://school.programmers.co.kr/learn/courses/30/lessons/42884">단속 카메라</td>
 </tr>
 
 </tbody>
